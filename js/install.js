@@ -2,14 +2,29 @@
 
 (function() {
 
-  var client = {
+  var settings = {
     isPackage: false,
-    manifest: 'https://mcjimenez.github.io/swshimclient/manifest.webapp'
+    manifest: 'https://mancas.github.io/settings-server/manifest.webapp'
   };
 
-  var server = {
+  var fm = {
     isPackage: false,
-    manifest: 'https://mcjimenez.github.io/swshim/manifest.webapp'
+    manifest: 'https://mancas.github.io/fm-server/manifest.webapp'
+  };
+
+  var deviceStorage = {
+    isPackage: false,
+    manifest: 'https://mancas.github.io/storage-server/manifest.webapp'
+  };
+
+  var systemXHR = {
+    isPackage: false,
+    manifest: 'https://mancas.github.io/systemxhr-server/manifest.webapp'
+  };
+
+  var contacts = {
+    isPackage: false,
+    manifest: 'https://mancas.github.io/contacts-server/manifest.webapp'
   };
 
   function install(app) {
@@ -41,10 +56,16 @@
   // Testing purpose only!!!!
   window.addEventListener('load', function () {
     console.log('CJC - Loaded shim installer');
-    var installBtoClient = document.getElementById('installclient');
-    var installBtoServer = document.getElementById('installserver');
-    installBtoClient.addEventListener('click', install.bind(null, client));
-    installBtoServer.addEventListener('click', install.bind(null, server));
+    var installBtoSettings = document.getElementById('installsettings');
+    var installBtoFM = document.getElementById('installfm');
+    var installBtoContacts = document.getElementById('installcontacts');
+    var installBtoStorage = document.getElementById('installstorage');
+    var installBtoSystemXHR = document.getElementById('installsystemxhr');
+    installBtoSettings.addEventListener('click', install.bind(null, settings));
+    installBtoFM.addEventListener('click', install.bind(null, fm));
+    installBtoContacts.addEventListener('click', install.bind(null, contacts));
+    installBtoStorage.addEventListener('click', install.bind(null, deviceStorage));
+    installBtoSystemXHR.addEventListener('click', install.bind(null, systemXHR));
   });
 
   console.log('CJC - install.js loaded');
